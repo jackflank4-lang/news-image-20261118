@@ -2,132 +2,78 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>The World in One Image — 18 November 2026</title>
+<title>World News — Wednesday 18 November 2026</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 1024px; height: 1024px; overflow: hidden; }
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f1e8;
-    color: #1a1a1a;
-  }
-  .masthead {
-    background: #0a1f3c;
-    color: #ffffff;
-    height: 158px;
-    padding: 26px 40px 0 40px;
-    border-bottom: 6px solid #c9a227;
-  }
-  .masthead .kicker {
-    font-size: 15px;
-    letter-spacing: 5px;
-    color: #c9a227;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  .masthead h1 {
-    font-size: 52px;
-    line-height: 1.05;
-    letter-spacing: -1px;
-    margin-top: 6px;
-  }
-  .masthead .date {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffffff;
-    margin-top: 8px;
-  }
-  .masthead .date span { color: #c9a227; }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    gap: 14px;
-    padding: 16px 40px 0 40px;
-    height: 792px;
-  }
-  .story {
-    background: #ffffff;
-    border-left: 7px solid #888;
-    padding: 14px 16px 10px 16px;
-    overflow: hidden;
-  }
-  .story h2 {
-    font-size: 22px;
-    line-height: 1.15;
-    margin-bottom: 7px;
-    text-transform: uppercase;
-    letter-spacing: 0.2px;
-  }
-  .story p {
-    font-size: 16px;
-    line-height: 1.42;
-    color: #333333;
-  }
-  .s1 { border-left-color: #c0392b; } .s1 h2 { color: #c0392b; }
-  .s2 { border-left-color: #e67e22; } .s2 h2 { color: #b95a10; }
-  .s3 { border-left-color: #c9a227; } .s3 h2 { color: #8a6d12; }
-  .s4 { border-left-color: #16a085; } .s4 h2 { color: #0f7a66; }
-  .s5 { border-left-color: #2471a3; } .s5 h2 { color: #1a5a82; }
-  .s6 { border-left-color: #8e44ad; } .s6 h2 { color: #6c3483; }
-  .s7 { border-left-color: #27ae60; } .s7 h2 { color: #1e8449; }
-  .s8 { border-left-color: #922b21; } .s8 h2 { color: #7b241c; }
-  .footer {
-    height: 74px;
-    margin: 14px 40px 0 40px;
-    padding-top: 10px;
-    border-top: 2px solid #0a1f3c;
-    font-size: 13.5px;
-    line-height: 1.45;
-    color: #444444;
-  }
-  .footer b { color: #0a1f3c; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1024px; height: 1024px; font-family: Arial, Helvetica, sans-serif; background: #f4f1ea; color: #1a1a1a; }
+  .page { width: 1024px; height: 1024px; padding: 20px 26px 16px; display: flex; flex-direction: column; }
+  header { background: #0a1f3d; color: #ffffff; padding: 18px 26px 15px; border-bottom: 5px solid #c8a028; }
+  header .kicker { font-size: 15px; letter-spacing: 4px; color: #e8b93c; font-weight: bold; }
+  header h1 { font-size: 64px; line-height: 1.02; letter-spacing: 1px; margin-top: 2px; }
+  header .date { font-size: 26px; margin-top: 6px; color: #dce6f2; }
+  header .date b { color: #ffffff; }
+  .lead { background: #ffffff; border-left: 8px solid #c0392b; padding: 13px 18px; margin-top: 15px; }
+  .lead h2 { font-size: 28px; line-height: 1.15; }
+  .lead p { font-size: 19px; line-height: 1.4; margin-top: 5px; color: #333333; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 13px; flex: 1; }
+  .story { background: #ffffff; border-top: 6px solid #888888; padding: 14px 16px; }
+  .story h3 { font-size: 22px; line-height: 1.2; }
+  .story p { font-size: 17px; line-height: 1.45; margin-top: 6px; color: #333333; }
+  .gaza { background: #ffffff; border-left: 8px solid #2e6f8e; padding: 11px 18px; margin-top: 13px; }
+  .gaza h3 { font-size: 22px; line-height: 1.2; }
+  .gaza p { font-size: 17px; line-height: 1.4; margin-top: 4px; color: #333333; }
+  footer { margin-top: 13px; background: #0a1f3d; color: #dfe7f0; padding: 10px 16px; font-size: 15px; line-height: 1.45; }
+  footer b { color: #e8b93c; }
 </style>
 </head>
 <body>
-  <div class="masthead">
-    <div class="kicker">The World in One Image</div>
-    <h1>Wednesday 18 November 2026</h1>
-    <div class="date"><span>◆</span> Eight stories that defined the day</div>
-  </div>
+<div class="page">
+  <header>
+    <div class="kicker">THE DAY IN BRIEF &nbsp;•&nbsp; ONE PAGE, ONE DAY</div>
+    <h1>WORLD NEWS</h1>
+    <div class="date"><b>Wednesday 18 November 2026</b> &mdash; the world in one image</div>
+  </header>
+
+  <section class="lead">
+    <h2>US&ndash;Iran strikes in the Gulf</h2>
+    <p>US jets hit a Revolutionary Guards missile site on Qeshm Island; Iran fires drones at a US radar site in Bahrain and targets Kuwait. Tankers burn in the Strait of Hormuz.</p>
+  </section>
 
   <div class="grid">
-    <div class="story s1">
-      <h2>US–Iran strikes in the Gulf</h2>
-      <p>US jets hit a Revolutionary Guards missile site on Qeshm Island; Iran fires drones at a US radar site in Bahrain and targets Kuwait. Tankers burn in the Strait of Hormuz.</p>
-    </div>
-    <div class="story s2">
-      <h2>Kerch Bridge hit again</h2>
+    <article class="story" style="border-top-color:#d35400">
+      <h3>Kerch Bridge hit again</h3>
       <p>Ukraine strikes the Crimea bridge for a second day; part of its road span collapses into the strait.</p>
-    </div>
-    <div class="story s3">
-      <h2>Trump–Xi–Putin summit</h2>
-      <p>The first-ever trilateral summit is set for 19 Nov in Shenzhen, on the APEC sidelines; APEC opens in Shenzhen, Quad leaders meet in Manila.</p>
-    </div>
-    <div class="story s4">
-      <h2>Ebola surges in DR Congo</h2>
+    </article>
+    <article class="story" style="border-top-color:#1f6fb2">
+      <h3>Trump&ndash;Xi&ndash;Putin summit set</h3>
+      <p>First-ever trilateral summit set for 19 Nov in Shenzhen, on the APEC sidelines; APEC opens there, Quad leaders meet in Manila.</p>
+    </article>
+    <article class="story" style="border-top-color:#7d3c98">
+      <h3>Ebola surges in DR Congo</h3>
       <p>Outbreak more than doubles in three months: 11,000+ cases, 5,400 deaths; three in four infected children under 5 die.</p>
-    </div>
-    <div class="story s5">
-      <h2>Cyclone Akvan</h2>
-      <p>Strengthening over the Bay of Bengal, landfall expected on the Andhra coast around noon on Friday 20 Nov.</p>
-    </div>
-    <div class="story s6">
-      <h2>US loses measles-free status</h2>
+    </article>
+    <article class="story" style="border-top-color:#148f77">
+      <h3>Cyclone Akvan gathers</h3>
+      <p>Strengthening over the Bay of Bengal, landfall expected on the Andhra coast around noon Friday 20 Nov.</p>
+    </article>
+    <article class="story" style="border-top-color:#b03a2e">
+      <h3>US loses measles-free status</h3>
       <p>After 26 years. 5,400+ cases, 10 deaths.</p>
-    </div>
-    <div class="story s7">
-      <h2>Nvidia doubles revenue</h2>
+    </article>
+    <article class="story" style="border-top-color:#b7950b">
+      <h3>Nvidia doubles revenue</h3>
       <p>$115.8B in the quarter, up 103% year on year; data-centre sales $107.6B.</p>
-    </div>
-    <div class="story s8">
-      <h2>Gaza</h2>
-      <p>UK, Australia, Canada and Italy jointly press Israel to open Gaza crossings as cold and flooding hit the camps; Israel&rsquo;s president taps Eisenkot to form a government, bypassing Netanyahu.</p>
-    </div>
+    </article>
   </div>
 
-  <div class="footer">
-    <b>Also:</b> Democrats win Alaska&rsquo;s Senate seat (56 seats) &nbsp;•&nbsp; France&rsquo;s fourth weekend of cost-of-living protests &nbsp;•&nbsp; Russian An-12 military plane crashes in Siberia, 19 dead &nbsp;•&nbsp; India–Japan 2+2 dialogue in Tokyo.
-  </div>
+  <section class="gaza">
+    <h3>Gaza: crossings pressed open</h3>
+    <p>UK, Australia, Canada and Italy jointly press Israel to open Gaza crossings as cold and flooding hit the camps; Israel&rsquo;s president taps Eisenkot to form a government, bypassing Netanyahu.</p>
+  </section>
+
+  <footer>
+    <b>ALSO TODAY &mdash;</b> Democrats win Alaska&rsquo;s Senate seat (56 seats) &nbsp;&bull;&nbsp; France&rsquo;s fourth weekend of cost-of-living protests &nbsp;&bull;&nbsp; Russian An-12 military plane crashes in Siberia, 19 dead &nbsp;&bull;&nbsp; India&ndash;Japan 2+2 dialogue in Tokyo
+  </footer>
+</div>
 </body>
 </html>

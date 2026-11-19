@@ -1,53 +1,51 @@
 #!/usr/bin/env python3
-"""news-image-20261118 entry program.
+"""Copy the repo's entry.png to $MAKEFUN_OUTPUT_DIR/entry.png.
 
-Copies the repo's entry.png (a 1024x1024 poster summing up the world news
-of Wednesday 18 November 2026) to $MAKEFUN_OUTPUT_DIR/entry.png.
-
-Standard library only. No network access. Deterministic: the output bytes
-are exactly the bytes of the bundled entry.png, so repeated runs produce
-byte-identical output.
+The program is deterministic: it copies the bundled image byte for byte,
+so two runs always write identical output. It validates the PNG signature,
+the 1024x1024 dimensions and the 1 MiB size limit before copying, verifies
+the written file matches the source byte for byte, and prints a confirmation.
 """
 
 import os
 import shutil
+import struct
 import sys
 
+SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "entry.png")
+PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
+MAX_BYTES = 1_048_576
 
-def main() -> int:
-    here = os.path.dirname(os.path.abspath(__file__))
-    source = os.path.join(here, "entry.png")
-    output_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
-    destination = os.path.join(output_dir, "entry.png")
 
-    if not os.path.isfile(source):
-        print("error: entry.png not found next to main.py", file=sys.stderr)
+def main():
+    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    out_path = os.path.join(out_dir, "entry.png")
+    with open(SRC, "rb") as f:
+        data = f.read()
+    if len(data) > MAX_BYTES:
+        print(
+            "entry.png is %d bytes, over the %d-byte limit" % (len(data), MAX_BYTES),
+            file=sys.stderr,
+        )
         return 1
-
-    os.makedirs(output_dir, exist_ok=True)
-    shutil.copyfile(source, destination)
-
-    # Sanity check: the written output must be a 1024x1024 PNG within the
-    # 1 MiB limit. (PNG header: 8-byte signature, then IHDR width/height
-    # as big-endian uint32 at bytes 16..24.)
-    size = os.path.getsize(destination)
-    with open(destination, "rb") as fh:
-        header = fh.read(33)
-    if len(header) < 33 or header[:8] != b"\x89PNG\r\n\x1a\n":
-        print("error: output is not a PNG", file=sys.stderr)
+    if data[:8] != PNG_SIGNATURE:
+        print("entry.png is not a PNG (bad signature)", file=sys.stderr)
         return 1
-    width = int.from_bytes(header[16:20], "big")
-    height = int.from_bytes(header[20:24], "big")
+    width, height = struct.unpack(">II", data[16:24])
     if (width, height) != (1024, 1024):
-        print(f"error: output is {width}x{height}, expected 1024x1024",
-              file=sys.stderr)
+        print(
+            "entry.png is %dx%d, expected 1024x1024" % (width, height),
+            file=sys.stderr,
+        )
         return 1
-    if size > 1024 * 1024:
-        print(f"error: output is {size} bytes, over the 1 MiB limit",
-              file=sys.stderr)
+    os.makedirs(out_dir, exist_ok=True)
+    shutil.copyfile(SRC, out_path)
+    with open(out_path, "rb") as f:
+        written = f.read()
+    if written != data:
+        print("output does not match entry.png", file=sys.stderr)
         return 1
-
-    print(f"wrote {destination} ({size} bytes, 1024x1024 PNG)")
+    print("Wrote %s (%d bytes, 1024x1024 PNG)" % (out_path, len(data)))
     return 0
 
 
